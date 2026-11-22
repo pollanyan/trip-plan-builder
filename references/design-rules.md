@@ -73,6 +73,8 @@
 
 ## 11. 两列布局与表格的 CSS 约束
 
+**依赖边界**：正常生成方案**不需要任何外部 Web 开发技能**——`assets/plan-template.html` 已固化全部 CSS 最佳实践，本 skill 可独立使用（也是跨平台安装的前提）。只有**修改模板设计系统本身**（改 CSS、加新交互组件、遇到新的布局 bug）时，才应先查现代 Web 最佳实践指南再动手，避免凭记忆写出过时或易碎的写法。
+
 - `.kv` 这类「标签 + 内容」两列，用 intrinsic sizing：`grid-template-columns:max-content 1fr`，让标签列按最长标签自适应；标签可 `white-space:nowrap`，但**列宽必须同步放开**。禁止「固定窄列 + nowrap」的组合——文字会溢出重叠。
 - 验证方法：浏览器量每个 `.k` 的 `getBoundingClientRect().right` 是否 ≤ 同行 `.v` 的 `.left`（留 gap），不能只看截图。
 - 重构 HTML 表格/区块时，**不要用 `find('<tbody>')` 这类无属性匹配**——预览工具会注入 `data-page-node-id`，标签实际是 `<tbody data-page-node-id="...">`，匹配失败会切坏 section。用正则兼容属性，或按 `<section id="...">` 锚点整体替换；改完立刻核对 section 数量与 id。
