@@ -43,20 +43,20 @@
 
 ```bash
 # 安装到当前项目（默认），同时装给 Claude Code 与 OpenCode
-npx -y skills@latest add <owner>/<repo> --skill trip-plan-builder -a claude-code -a opencode -y
+npx -y skills@latest add pollanyan/trip-plan-builder --skill trip-plan-builder -a claude-code -a opencode -y
 
 # 安装到全局（所有项目可用）
-npx -y skills@latest add <owner>/<repo> --skill trip-plan-builder -a claude-code -a opencode -g -y
+npx -y skills@latest add pollanyan/trip-plan-builder --skill trip-plan-builder -a claude-code -a opencode -g -y
 
 # 本地路径安装（发布前测试，或不想用 GitHub 时）
 npx -y skills@latest add /path/to/trip-plan-builder --skill trip-plan-builder -a claude-code -g -y
 ```
 
-把 `<owner>/<repo>` 换成你的 GitHub 仓库（如 `yourname/trip-plan-builder`）。安装前可先预览：
+仓库地址为 `pollanyan/trip-plan-builder`。安装前可先预览：
 
 ```bash
-npx -y skills@latest add <owner>/<repo> --list          # 列出仓库里的 skill
-npx -y skills@latest add <owner>/<repo> -s trip-plan-builder --copy -y   # 复制而非软链
+npx -y skills@latest add pollanyan/trip-plan-builder --list          # 列出仓库里的 skill
+npx -y skills@latest add pollanyan/trip-plan-builder -s trip-plan-builder --copy -y   # 复制而非软链
 ```
 
 其它常用：`npx skills list` 查看已装、`npx skills update trip-plan-builder` 更新、`npx skills remove trip-plan-builder` 卸载。
@@ -70,7 +70,7 @@ npx -y skills@latest add <owner>/<repo> -s trip-plan-builder --copy -y   # 复�
 **WorkBuddy**（装到用户级，所有项目可用）
 
 ```bash
-git clone <本仓库地址> /tmp/tpb && mkdir -p ~/.workbuddy/skills && cp -R /tmp/tpb/trip-plan-builder ~/.workbuddy/skills/ && rm -rf /tmp/tpb
+git clone https://github.com/pollanyan/trip-plan-builder.git /tmp/tpb && mkdir -p ~/.workbuddy/skills && cp -R /tmp/tpb/trip-plan-builder ~/.workbuddy/skills/ && rm -rf /tmp/tpb
 ```
 
 项目级：把目标目录换成 `<项目目录>/.workbuddy/skills/`。
@@ -80,7 +80,7 @@ git clone <本仓库地址> /tmp/tpb && mkdir -p ~/.workbuddy/skills && cp -R /t
 > DeepSeek 网页聊天 box 不支持技能，只有开源的 DeepSeek Harness 支持。
 
 ```bash
-git clone <本仓库地址> /tmp/tpb && mkdir -p ~/.dsh/skills && cp -R /tmp/tpb/trip-plan-builder ~/.dsh/skills/ && rm -rf /tmp/tpb
+git clone https://github.com/pollanyan/trip-plan-builder.git /tmp/tpb && mkdir -p ~/.dsh/skills && cp -R /tmp/tpb/trip-plan-builder ~/.dsh/skills/ && rm -rf /tmp/tpb
 ```
 
 项目级换成 `.dsh/skills/`。技能目录会被自动监听，无需重启；可用 `/trip-plan-builder` 手动触发。
